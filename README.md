@@ -32,3 +32,29 @@ NOTE: Although this can save the installable program, it cannot save anyuser inf
 
 Also, this does not sign the app with the publisher's actual key or counter-sign it with the Windows Store key. It signs it with a custom self-signed key. To reinstall your app, you will need first install the *.cer file into your Trusted Root Certificates Store. Just double clicn on the *.cer file and manually add it to the correct store. This requires administrator privileges. Once that is done, you can install the app with the PowerShell command Add-AppxPackage.
 
+# My Notes:
+Install Visual Studio 2022 Community:<br />
+https://visualstudio.microsoft.com/downloads/<br />
+Direct Link:<br />
+https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=Community&channel=Release&version=VS2022&source=VSLandingPage&cid=2030&passive=false
+
+Run the PowerShell script by right clicking Appx-Backup.ps1 and clicking Run with PowerShell
+
+WSAppPath (App folder for your app):<br />
+C:\Program Files\WindowsApps\2949193320E78.BestPlayer8.1_7.7.8.0_x64__pg6a145mvhp7p
+
+WSAppOutputPath (Backup location):<br />
+C:\Users\austn\Desktop\App Backup
+
+WSTools (Visual Studio 2022 Community Tools folder):<br />
+C:\Program Files (x86)\Windows Kits\10\bin\10.0.19041.0\x64
+
+You must install the .cer file before installing the backup, or the Install button will be grayed out and it says:<br />
+This app package’s publisher certificate could not be verified. Contact your system administrator or the app developer to obtain a new app package with verified certificates. The root certificate and all immediate certificates of the signature in the app package must be verified (0x800B010A)
+
+Open the .cer and click Install Certificate...<br />
+Local Machine<br />
+Place all certificates in the following store<br />
+Trusted Root Certification Authorities
+
+Open the .aapx to install it
